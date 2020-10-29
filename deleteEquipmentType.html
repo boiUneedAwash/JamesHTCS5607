@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Delete Service Level</title>
+    <title>Delete Equipment Type</title>
     <script
             src="https://code.jquery.com/jquery-3.5.1.min.js"
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -13,28 +13,29 @@
             $.ajax({
                 type: 'GET',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/service_level/',
+                url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/',
                 success: function (data) {
                     console.log(data);
                     i = 0;
                     while (i < data.length){
-                        servicelevel = data[i];
-                        $("#show_servicelevel").append("" +
+                        equipmentType = data[i];
+                        $("#show_equipmentType").append("" +
                             "<option value='"
-                            +servicelevel.servicelevelID+"'>" +
-                            servicelevel.description +
-                            // servicelevel.serviceRate +
+                            +equipmentType.equipmentTypeID+"'>" +
+                            equipmentType.description +
+                            // equipmentType.leaserate +
                             "</option>");
+
                         i++;
                     }
-                    $("#show_servicelevel").change(function () {
-                        servicelevelID = $("#show_servicelevel").val();
-                        getSingleServiceLevel(servicelevelID);
+                    $("#show_equipmentType").change(function () {
+                        equipmentTypeID = $("#show_equipmentType").val();
+                        getSingleEquipmentType(equipmentTypeID);
                     });
 
                     $("#delete_but").click(function () {
-                        servicelevelID = $("#servicelevel").val();
-                        deleteServiceLevel(servicelevelID);
+                        equipmentTypeID = $("#show_equipmentType").val();
+                        deleteEquipmentType(equipmentTypeID);
                     });
                 },
                 error: function (err) {
@@ -43,17 +44,17 @@
             });
         });
 
-        function getSingleServiceLevel(servicelevelID){
+        function getSingleEquipmentType(equipmentTypeID){
             $.ajax({
                 type: 'GET',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/service_level/'+servicelevelID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/'+equipmentTypeID+'/',
                 success: function (data) {
                     console.log(data);
-                    servicelevel = data;
-                    $("#servicelevel_servicelevelID_input").val(servicelevel.servicelevelID);
-                    $("#servicelevel_description_input").val(servicelevel.description);
-                    $("#servicelevel_serviceRate_input").val(servicelevel.serviceRate);
+                    equipmentType = data;
+                    $("#equipmentType_equipmentTypeID_input").val(equipmentType.equipmentTypeID);
+                    $("#equipmentType_description_input").val(equipmentType.description);
+                    $("#equipmentType_leaserate_input").val(equipmentType.leaserate);
 
                 },
                 error: function (err) {
@@ -62,11 +63,11 @@
             });
         }
 
-        function deleteServiceLevel(servicelevelID) {
+        function deleteEquipmentType(equipmentTypeID) {
             $.ajax({
                 type: 'DELETE',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/service_level/'+servicelevelID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/'+equipmentTypeID+'/',
                 success: function (data) {
                     console.log(data);
                 },
@@ -74,14 +75,14 @@
                 //     console.log(err);
                 // }
                 success: function (data) {
-                    alert('Service Level deleted successfully');
+                    alert('Equipment Type deleted successfully');
                     location.reload();
                 },
                 // success: function (data) {
-                //     alert('Delete another Service Level?');
-                //     // NOTE: Can't Use HTML in a jQuery Function
-                //     // <button><a href="divisionsMenu.html">No</a></button>
-                //     // <button><a href="deleteServiceLevel.html">Yes</a></button>
+                //     alert('Delete another Equipment Type?');
+                //     // Can't Use HTML in a jQuery Function
+                //     // <button><a href="facilitiesMenu.html">No</a></button>
+                //     // <button><a href="deleteEquipmentType.html">Yes</a></button>
                 //     location.reload();
                 // },
                 error: function (err) {
@@ -98,23 +99,23 @@
     </script>
 </head>
 <body>
-<h1>Delete Service Level</h1>
+<h1>Delete Equipment Type</h1>
 <form onsubmit="return false">
     <p>
-        <label>Service Level ID: </label>
-        <input id="servicelevel_servicelevelID_input" type="text">
+        <label>Equipment Type ID: </label>
+        <input id="equipmentType_equipmentTypeID_input" type="text">
     </p>
     <p>
         <label>Description</label>
-        <select id="show_servicelevel">
-            <option>Please Select A Service Level Description</option>
+        <select id="show_equipmentType">
+            <option>Please Select A Equipment Type Description</option>
         </select>
     </p>
     <p>
-        <label>Service Rate: </label>
-        <input id="servicelevel_serviceRate_input" type="text">
+        <label>Lease Rate: </label>
+        <input id="equipmentType_leaserate_input" type="text">
     </p>
-    <p><button id="delete_but">Delete Service Level</button><button><a href="divisionsMenu.html">Cancel</a></button></p>
+    <p><button id="delete_but">Delete Equipment Type</button><button><a href="divisionsMenu.html">Cancel</a></button></p>
 </form>
 </body>
 </html>
