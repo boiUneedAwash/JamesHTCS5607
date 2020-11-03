@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Service Level</title>
+    <title>Add Equipment Type</title>
     <style type="text/css">
         button {
             width: 20%;
@@ -16,20 +16,20 @@
     </script>
     <script>
         $(document).ready(function () {
-            $("#add_servicelevel_but").click(function () {
+            $("#add_equipmentType_but").click(function () {
                 description1 = $("#description_input").val();
-                serviceRate1 = $("#serviceRate_input").val();
+                leaserate1 = $("#leaserate_input").val();
 
                 $.ajax({
                     type: 'POST',
                     dataType: 'JSON',
-                    url: 'https://htcs5607isap.herokuapp.com/api/service_level/',
+                    url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/',
                     data: {
                         description: description1,
-                        serviceRate: serviceRate1,
+                        leaserate: leaserate1,
                     },
                     success: function (data) {
-                        alert('Service Level added successfully');
+                        alert('Equipment Type added successfully');
                         location.reload();
                     },
                     error: function (err) {
@@ -37,7 +37,7 @@
                         errors = JSON.parse(err.responseText);
                         console.log(errors);
                         $("#description_input_err").text(errors.description);
-                        $("#serviceRate_input_err").text(errors.serviceRate);
+                        $("#leaserate_input_err").text(errors.leaserate);
                     }
                 });
             });
@@ -45,13 +45,13 @@
     </script>
 </head>
 <body>
-<h1>Add Service Level</h1>
+<h1>Add Equipment Type</h1>
 <form onsubmit="return false">
     <p><label> Description: </label><input id="description_input" type="text" size="25"></p>
     <p id="description_input_err"></p>
-    <p><label> Service Rate: </label><input id="serviceRate_input" type="text" size="25"></p>
-    <p id="serviceRate_input_err"></p>
-    <button type="button" id="add_servicelevel_but">Add Service Level</button><button><a href="divisionsMenu.html">Cancel</a></button>
+    <p><label> Lease Rate: </label><input id="leaserate_input" type="text" size="25"></p>
+    <p id="leaserate_input_err"></p>
+    <button type="button" id="add_equipmentType_but">Add Service Level</button><button><a href="divisionsMenu.html">Cancel</a></button>
 </form>
 </body>
 </html>

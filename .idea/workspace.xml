@@ -10,9 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d5a0308-3965-4e84-b52e-3e2a02d68004" name="Default Changelist" comment="">
+    <list default="true" id="2d5a0308-3965-4e84-b52e-3e2a02d68004" name="Default Changelist" comment="Add finished and working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deleteServiceLevel.html" beforeDir="false" afterPath="$PROJECT_DIR$/deleteServiceLevel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addServiceLevel.html" beforeDir="false" afterPath="$PROJECT_DIR$/addServiceLevel.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +30,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="James Tiller &lt;jamesdanieltiller@protonmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="ProjectId" id="1jRNMsbRhu31yiSYm2Y1T0BF2cE" />
   <component name="ProjectViewState">
@@ -55,8 +61,16 @@
       <workItem from="1603762901158" duration="998000" />
       <workItem from="1603837186062" duration="39000" />
       <workItem from="1603837233032" duration="200000" />
-      <workItem from="1603925701397" duration="13501000" />
+      <workItem from="1603925701397" duration="15630000" />
     </task>
+    <task id="LOCAL-00001" summary="Add finished and working">
+      <created>1604365860741</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604365860741</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -73,6 +87,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add finished and working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add finished and working" />
   </component>
   <component name="WindowStateProjectService">
     <state x="260" y="278" key="FileChooserDialogImpl" timestamp="1603952241196">
