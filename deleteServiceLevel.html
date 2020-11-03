@@ -88,10 +88,9 @@
                     console.log(err);
                     errors = JSON.parse(err.responseText);
                     console.log(errors);
-                    $("#locationID_input_err").text(errors.locationID);
-                    $("#suburb_input_err").text(errors.suburb);
-                    $("#city_input_err").text(errors.city);
-                    $("#country_input_err").text(errors.country);
+                    $("#servicelevelID_input_err").text(errors.servicelevelID);
+                    $("#description_input_err").text(errors.description);
+                    $("#serviceRate_input_err").text(errors.serviceRate);
                 }
             });
         }
