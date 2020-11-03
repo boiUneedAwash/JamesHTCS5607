@@ -33,7 +33,7 @@
                     });
 
                     $("#delete_but").click(function () {
-                        servicelevelID = $("#servicelevel").val();
+                        servicelevelID = $("#show_servicelevel").val();
                         deleteServiceLevel(servicelevelID);
                     });
                 },
@@ -54,7 +54,6 @@
                     $("#servicelevel_servicelevelID_input").val(servicelevel.servicelevelID);
                     $("#servicelevel_description_input").val(servicelevel.description);
                     $("#servicelevel_serviceRate_input").val(servicelevel.serviceRate);
-
                 },
                 error: function (err) {
                     console.log(err);
