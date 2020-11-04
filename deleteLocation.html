@@ -35,9 +35,9 @@
                     });
 
                     $("#delete_but").click(function () {
-                        alert($("#show_locations").val());
+
                         if ($("#show_locations").val()==""){
-                            alert("no input");
+
                             $("#locationSelectionError").text("please select a location");
                         }else {
                             locationID = $("#show_locations").val();
@@ -119,7 +119,7 @@
     <p>
         <label>Suburb</label>
         <select id="show_locations">
-            <option>Please Select A Location</option>
+            <option value="">Please Select A Location</option>
         </select>
     </p>
     <p>
