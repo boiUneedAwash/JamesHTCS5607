@@ -36,6 +36,7 @@
 
                     $("#delete_but").click(function () {
                         if ($("#show_locations").val()==""){
+                            alert("no input");
                             $("#locationSelectionError").text("please select a location");
                         }else {
                             locationID = $("#show_locations").val();
