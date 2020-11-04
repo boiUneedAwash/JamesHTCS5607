@@ -35,8 +35,13 @@
                     });
 
                     $("#delete_but").click(function () {
-                        locationID = $("#show_locations").val();
-                        deleteLocation(locationID);
+                        if ($("#show_locations").val()==""){
+                            $("#locationSelectionError").text("please select a location");
+                        }else {
+                            locationID = $("#show_locations").val();
+                            deleteLocation(locationID);
+                        }
+
                     });
                 },
                 error: function (err) {
@@ -106,7 +111,9 @@
     <p>
         <label>Location ID: </label>
         <input id="locations_locationID_input" type="text">
+
     </p>
+    <p id="locationSelectionError"></p>
     <p>
         <label>Suburb</label>
         <select id="show_locations">
