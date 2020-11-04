@@ -11,7 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d5a0308-3965-4e84-b52e-3e2a02d68004" name="Default Changelist" comment="Add finished and working">
-      <change beforePath="$PROJECT_DIR$/deleteServiceLevel.html" beforeDir="false" afterPath="$PROJECT_DIR$/deleteServiceLevel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/updateEquipmentType.html" beforeDir="false" afterPath="$PROJECT_DIR$/updateEquipmentType.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +47,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -61,6 +63,7 @@
       <workItem from="1603837186062" duration="39000" />
       <workItem from="1603837233032" duration="200000" />
       <workItem from="1603925701397" duration="16699000" />
+      <workItem from="1604476957348" duration="524000" />
     </task>
     <task id="LOCAL-00001" summary="Add finished and working">
       <created>1604365860741</created>

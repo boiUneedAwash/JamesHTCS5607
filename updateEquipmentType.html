@@ -77,6 +77,12 @@
                 },
                 success: function (data) {
                     alert('Equipment Type added successfully');
+                    if (confirm('Do you want to delete another Equipment Type')) {
+                        location.reload();}
+                    else{
+                        console.log("");
+                        window.location.href = "facilitiesMenu.html";
+                    }
                     location.reload();
                 },
                 error: function (err) {
