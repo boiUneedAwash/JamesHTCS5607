@@ -30,8 +30,15 @@
                     },
                     success: function (data) {
                         alert('Service Level added successfully');
+                        if (confirm('Do you want to delete another Service Level')) {
+                            location.reload();}
+                        else{
+                            console.log("");
+                            window.location.href = "divisionsMenu.html";
+                        }
                         location.reload();
                     },
+
                     error: function (err) {
                         console.log(err);
                         errors = JSON.parse(err.responseText);

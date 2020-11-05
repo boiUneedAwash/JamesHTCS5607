@@ -32,10 +32,23 @@
                         getSingleServiceLevel(servicelevelID);
                     });
 
+                    // $("#delete_but").click(function () {
+                    //     servicelevelID = $("#show_servicelevel").val();
+                    //     deleteServiceLevel(servicelevelID);
+                    // });
+
                     $("#delete_but").click(function () {
-                        servicelevelID = $("#show_servicelevel").val();
-                        deleteServiceLevel(servicelevelID);
+
+                        if ($("#show_servicelevel").val()==""){
+
+                            $("#serviceLevelSelectionError").text("please select a Service Level");
+                        }else {
+                            locationID = $("#show_servicelevel").val();
+                            deleteServiceLevel(servicelevelID);
+                        }
+
                     });
+
                 },
                 error: function (err) {
                     console.log(err);
@@ -69,20 +82,17 @@
                 success: function (data) {
                     console.log(data);
                 },
-                // error: function (err) {
-                //     console.log(err);
-                // }
+
                 success: function (data) {
-                    alert('Service Level deleted successfully');
+                    alert('Service Level added successfully');
+                    if (confirm('Do you want to delete another Service Level')) {
+                        location.reload();}
+                    else{
+                        console.log("");
+                        window.location.href = "divisionsMenu.html";
+                    }
                     location.reload();
                 },
-                // success: function (data) {
-                //     alert('Delete another Service Level?');
-                //     // NOTE: Can't Use HTML in a jQuery Function
-                //     // <button><a href="divisionsMenu.html">No</a></button>
-                //     // <button><a href="deleteServiceLevel.html">Yes</a></button>
-                //     location.reload();
-                // },
                 error: function (err) {
                     console.log(err);
                     errors = JSON.parse(err.responseText);

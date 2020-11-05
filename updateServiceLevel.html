@@ -32,10 +32,23 @@
                         getSingleServiceLevel(servicelevelID);
                     });
 
+                    // $("#change_servicelevel_but").click(function () {
+                    //     servicelevelID = $("#show_servicelevel").val();
+                    //     updateServiceLevel(servicelevelID);
+                    // });
+
                     $("#change_servicelevel_but").click(function () {
-                        servicelevelID = $("#show_servicelevel").val();
-                        updateServiceLevel(servicelevelID);
+
+                        if ($("#show_servicelevel").val()==""){
+
+                            $("#serviceLevelSelectionError").text("please select a service level");
+                        }else {
+                            servicelevelID = $("#show_servicelevel").val();
+                            deleteServiceLevel(servicelevelID);
+                        }
+
                     });
+
                 },
                 error: function (err) {
                     console.log(err);
@@ -76,7 +89,13 @@
                     "serviceRate": servicelevel_serviceRate,
                 },
                 success: function (data) {
-                    alert('Service Level added successfully');
+                    alert('Service Level updated successfully');
+                    if (confirm('Do you want to update another Service Level')) {
+                        location.reload();}
+                    else{
+                        console.log("");
+                        window.location.href = "divisionsMenu.html";
+                    }
                     location.reload();
                 },
                 error: function (err) {

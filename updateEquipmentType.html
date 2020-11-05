@@ -32,10 +32,22 @@
                         getSingleEquipmentType(equipmentTypeID);
                     });
 
+                    // $("#change_equipmentType_but").click(function () {
+                    //     equipmentTypeID = $("#show_equipmentType").val();
+                    //     updateEquipmentType(equipmentTypeID);
+                    // });
                     $("#change_equipmentType_but").click(function () {
-                        equipmentTypeID = $("#show_equipmentType").val();
-                        updateEquipmentType(equipmentTypeID);
+
+                        if ($("#show_equipmentType").val()==""){
+
+                            $("#equipmentTypeSelectionError").text("please select a Equipment Type");
+                        }else {
+                            equipmentTypeID = $("#show_equipmentType").val();
+                            deleteEquipmentType(equipmentTypeID);
+                        }
+
                     });
+
                 },
                 error: function (err) {
                     console.log(err);
@@ -76,7 +88,7 @@
                     "leaserate": equipmentType_leaserate,
                 },
                 success: function (data) {
-                    alert('Equipment Type added successfully');
+                    alert('Equipment Type updated successfully');
                     if (confirm('Do you want to delete another Equipment Type')) {
                         location.reload();}
                     else{

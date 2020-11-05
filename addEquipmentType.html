@@ -28,9 +28,16 @@
                         description: description1,
                         leaserate: leaserate1,
                     },
-                    success: function (data) {
-                        alert('Equipment Type added successfully');
-                        location.reload();
+                        success: function (data) {
+                            alert('Equipment Type added successfully');
+                            if (confirm('Do you want to add another Equipment Type')) {
+                                location.reload();}
+                            else{
+                                console.log("");
+                                window.location.href = "facilitiesMenu.html";
+                            }
+                            location.reload();
+                        },
                     },
                     error: function (err) {
                         console.log(err);

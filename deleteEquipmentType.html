@@ -33,10 +33,23 @@
                         getSingleEquipmentType(equipmentTypeID);
                     });
 
+                    // $("#delete_but").click(function () {
+                    //     equipmentTypeID = $("#show_equipmentType").val();
+                    //     deleteEquipmentType(equipmentTypeID);
+                    // });
+
                     $("#delete_but").click(function () {
-                        equipmentTypeID = $("#show_equipmentType").val();
-                        deleteEquipmentType(equipmentTypeID);
+
+                        if ($("#show_equipmentType").val()==""){
+
+                            $("#equipmentTypeSelectionError").text("please select a Equipment Type");
+                        }else {
+                            equipmentTypeID = $("#show_equipmentType").val();
+                            deleteEquipmentType(equipmentTypeID);
+                        }
+
                     });
+
                 },
                 error: function (err) {
                     console.log(err);
@@ -74,17 +87,18 @@
                 // error: function (err) {
                 //     console.log(err);
                 // }
-                success: function (data) {
-                    alert('Equipment Type deleted successfully');
-                    location.reload();
+                    success: function (data) {
+                        alert('Equipment Type deleted successfully');
+                        if (confirm('Do you want to delete another Equipment Type')) {
+                            location.reload();}
+                        else{
+                            console.log("");
+                            window.location.href = "facilitiesMenu.html";
+                        }
+                        location.reload();
+                    },
                 },
-                // success: function (data) {
-                //     alert('Delete another Equipment Type?');
-                //     // Can't Use HTML in a jQuery Function
-                //     // <button><a href="facilitiesMenu.html">No</a></button>
-                //     // <button><a href="deleteEquipmentType.html">Yes</a></button>
-                //     location.reload();
-                // },
+
                 error: function (err) {
                     console.log(err);
                     errors = JSON.parse(err.responseText);

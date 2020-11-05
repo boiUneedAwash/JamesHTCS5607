@@ -80,20 +80,18 @@
                 success: function (data) {
                     console.log(data);
                 },
-                // error: function (err) {
-                //     console.log(err);
-                // }
+
                 success: function (data) {
                     alert('Location deleted successfully');
+                    if (confirm('Do you want to delete another Location')) {
+                        location.reload();}
+                    else{
+                        console.log("");
+                        window.location.href = "divisionsMenu.html";
+                    }
                     location.reload();
                 },
-                // success: function (data) {
-                //     alert('Delete another Location?');
-                //     // Can't Use HTML in a jQuery Function
-                //     // <button><a href="divisionsMenu.html">No</a></button>
-                //     // <button><a href="deleteLocation.html">Yes</a></button>
-                //     location.reload();
-                // },
+
                 error: function (err) {
                     console.log(err);
                     errors = JSON.parse(err.responseText);
