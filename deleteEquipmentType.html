@@ -17,51 +17,46 @@
                 success: function (data) {
                     console.log(data);
                     i = 0;
-                    while (i < data.length){
+                    while (i < data.length) {
                         equipmentType = data[i];
                         $("#show_equipmentType").append("" +
                             "<option value='"
-                            +equipmentType.equipmentTypeID+"'>" +
+                            + equipmentType.equipmentTypeID + "'>" +
                             equipmentType.description +
                             // equipmentType.leaserate +
                             "</option>");
-
                         i++;
                     }
+
                     $("#show_equipmentType").change(function () {
                         equipmentTypeID = $("#show_equipmentType").val();
                         getSingleEquipmentType(equipmentTypeID);
                     });
 
-                    // $("#delete_but").click(function () {
-                    //     equipmentTypeID = $("#show_equipmentType").val();
-                    //     deleteEquipmentType(equipmentTypeID);
-                    // });
-
                     $("#delete_but").click(function () {
 
-                        if ($("#show_equipmentType").val()==""){
+                        if ($("#show_equipmentType").val() == "") {
 
                             $("#equipmentTypeSelectionError").text("please select a Equipment Type");
-                        }else {
+                        } else {
                             equipmentTypeID = $("#show_equipmentType").val();
                             deleteEquipmentType(equipmentTypeID);
                         }
-
                     });
-
                 },
+
                 error: function (err) {
                     console.log(err);
                 }
+
             });
         });
 
-        function getSingleEquipmentType(equipmentTypeID){
+        function getSingleEquipmentType(equipmentTypeID) {
             $.ajax({
                 type: 'GET',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/'+equipmentTypeID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/' + equipmentTypeID + '/',
                 success: function (data) {
                     console.log(data);
                     equipmentType = data;
@@ -70,9 +65,11 @@
                     $("#equipmentType_leaserate_input").val(equipmentType.leaserate);
 
                 },
+
                 error: function (err) {
                     console.log(err);
                 }
+
             });
         }
 
@@ -80,24 +77,21 @@
             $.ajax({
                 type: 'DELETE',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/'+equipmentTypeID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/' + equipmentTypeID + '/',
                 success: function (data) {
                     console.log(data);
                 },
-                // error: function (err) {
-                //     console.log(err);
-                // }
-                    success: function (data) {
-                        alert('Equipment Type deleted successfully');
-                        if (confirm('Do you want to delete another Equipment Type')) {
-                            location.reload();}
-                        else{
-                            console.log("");
-                            window.location.href = "facilitiesMenu.html";
-                        }
-                        location.reload();
-                    },
 
+                success: function (data) {
+                    alert('Equipment Type deleted successfully');
+                    if (confirm('Do you want to delete another Equipment Type')) {
+                        location.reload();
+                    } else {
+                        console.log("");
+                        window.location.href = "facilitiesMenu.html";
+                    }
+                    location.reload();
+                },
 
                 error: function (err) {
                     console.log(err);
@@ -129,7 +123,10 @@
         <label>Lease Rate: </label>
         <input id="equipmentType_leaserate_input" type="text">
     </p>
-    <p><button id="delete_but">Delete Equipment Type</button><button><a href="divisionsMenu.html">Cancel</a></button></p>
+    <p>
+        <button id="delete_but">Delete Equipment Type</button>
+        <button><a href="divisionsMenu.html">Cancel</a></button>
+    </p>
 </form>
 </body>
 </html>

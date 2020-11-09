@@ -17,32 +17,28 @@
                 success: function (data) {
                     console.log(data);
                     i = 0;
-                    while (i < data.length){
+                    while (i < data.length) {
                         servicelevel = data[i];
                         $("#show_servicelevel").append("" +
                             "<option value='"
-                            +servicelevel.servicelevelID+"'>" +
-                            servicelevel.description +" "+
+                            + servicelevel.servicelevelID + "'>" +
+                            servicelevel.description + " " +
                             // servicelevel.LastName +
                             "</option>");
                         i++;
                     }
+
                     $("#show_servicelevel").change(function () {
                         servicelevelID = $("#show_servicelevel").val();
                         getSingleServiceLevel(servicelevelID);
                     });
 
-                    // $("#change_servicelevel_but").click(function () {
-                    //     servicelevelID = $("#show_servicelevel").val();
-                    //     updateServiceLevel(servicelevelID);
-                    // });
-
                     $("#change_servicelevel_but").click(function () {
 
-                        if ($("#show_servicelevel").val()==""){
+                        if ($("#show_servicelevel").val() == "") {
 
                             $("#serviceLevelSelectionError").text("please select a service level");
-                        }else {
+                        } else {
                             servicelevelID = $("#show_servicelevel").val();
                             updateServiceLevel(servicelevelID);
                         }
@@ -50,17 +46,19 @@
                     });
 
                 },
+
                 error: function (err) {
                     console.log(err);
                 }
+
             });
         });
 
-        function getSingleServiceLevel(servicelevelID){
+        function getSingleServiceLevel(servicelevelID) {
             $.ajax({
                 type: 'GET',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/service_level/'+servicelevelID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/service_level/' + servicelevelID + '/',
                 success: function (data) {
                     console.log(data);
                     servicelevel = data;
@@ -68,21 +66,23 @@
                     $("#servicelevel_description_input").val(servicelevel.description);
                     $("#servicelevel_serviceRate_input").val(servicelevel.serviceRate);
                 },
+
                 error: function (err) {
                     console.log(err);
                 }
+
             });
         }
 
         function updateServiceLevel(serviceRate_servicelevelID) {
-            servicelevel_servicelevelID= $("#servicelevel_servicelevelID_input").val();
-            servicelevel_description= $("#servicelevel_description_input").val();
-            servicelevel_serviceRate= $("#servicelevel_serviceRate_input").val();
+            servicelevel_servicelevelID = $("#servicelevel_servicelevelID_input").val();
+            servicelevel_description = $("#servicelevel_description_input").val();
+            servicelevel_serviceRate = $("#servicelevel_serviceRate_input").val();
 
             $.ajax({
                 type: 'PUT',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/service_level/'+servicelevelID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/service_level/' + servicelevelID + '/',
                 data: {
                     "servicelevelID": servicelevel_servicelevelID,
                     "description": servicelevel_description,
@@ -91,13 +91,14 @@
                 success: function (data) {
                     alert('Service Level updated successfully');
                     if (confirm('Do you want to update another Service Level')) {
-                        location.reload();}
-                    else{
+                        location.reload();
+                    } else {
                         console.log("");
                         window.location.href = "divisionsMenu.html";
                     }
                     location.reload();
                 },
+
                 error: function (err) {
                     console.log(err);
                     errors = JSON.parse(err.responseText);
@@ -126,7 +127,10 @@
         <label>Service Rate: </label>
         <input id="servicelevel_serviceRate_input" type="text">
     </p>
-    <p><button id="change_servicelevel_but">Update Service Level</button><button><a href="divisionsMenu.html">Cancel</a></button></p>
+    <p>
+        <button id="change_servicelevel_but">Update Service Level</button>
+        <button><a href="divisionsMenu.html">Cancel</a></button>
+    </p>
 </form>
 </body>
 </html>

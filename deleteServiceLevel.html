@@ -17,50 +17,46 @@
                 success: function (data) {
                     console.log(data);
                     i = 0;
-                    while (i < data.length){
+                    while (i < data.length) {
                         servicelevel = data[i];
                         $("#show_servicelevel").append("" +
                             "<option value='"
-                            +servicelevel.servicelevelID+"'>" +
+                            + servicelevel.servicelevelID + "'>" +
                             servicelevel.description +
                             // servicelevel.serviceRate +
                             "</option>");
                         i++;
                     }
+
                     $("#show_servicelevel").change(function () {
                         servicelevelID = $("#show_servicelevel").val();
                         getSingleServiceLevel(servicelevelID);
                     });
 
-                    // $("#delete_but").click(function () {
-                    //     servicelevelID = $("#show_servicelevel").val();
-                    //     deleteServiceLevel(servicelevelID);
-                    // });
-
                     $("#delete_but").click(function () {
 
-                        if ($("#show_servicelevel").val()==""){
-
+                        if ($("#show_servicelevel").val() == "") {
                             $("#serviceLevelSelectionError").text("please select a Service Level");
-                        }else {
+                        } else {
                             locationID = $("#show_servicelevel").val();
                             deleteServiceLevel(servicelevelID);
                         }
 
                     });
-
                 },
+
                 error: function (err) {
                     console.log(err);
                 }
+
             });
         });
 
-        function getSingleServiceLevel(servicelevelID){
+        function getSingleServiceLevel(servicelevelID) {
             $.ajax({
                 type: 'GET',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/service_level/'+servicelevelID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/service_level/' + servicelevelID + '/',
                 success: function (data) {
                     console.log(data);
                     servicelevel = data;
@@ -78,7 +74,7 @@
             $.ajax({
                 type: 'DELETE',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/service_level/'+servicelevelID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/service_level/' + servicelevelID + '/',
                 success: function (data) {
                     console.log(data);
                 },
@@ -86,8 +82,8 @@
                 success: function (data) {
                     alert('Service Level added successfully');
                     if (confirm('Do you want to delete another Service Level')) {
-                        location.reload();}
-                    else{
+                        location.reload();
+                    } else {
                         console.log("");
                         window.location.href = "divisionsMenu.html";
                     }
@@ -122,7 +118,10 @@
         <label>Service Rate: </label>
         <input id="servicelevel_serviceRate_input" type="text">
     </p>
-    <p><button id="delete_but">Delete Service Level</button><button><a href="divisionsMenu.html">Cancel</a></button></p>
+    <p>
+        <button id="delete_but">Delete Service Level</button>
+        <button><a href="divisionsMenu.html">Cancel</a></button>
+    </p>
 </form>
 </body>
 </html>

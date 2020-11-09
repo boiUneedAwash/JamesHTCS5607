@@ -9,22 +9,22 @@
             crossorigin="anonymous">
     </script>
     <script>
-        $(document).ready(function (){
+        $(document).ready(function () {
             //click this button
-            $("#generate").click(function (){
+            $("#generate").click(function () {
                 $("#reportPlace").empty();
                 //1. get all service level
                 servicesLevels = getAllServiceLevel();
                 var i = 0;
-                while (i < servicesLevels.length){
+                while (i < servicesLevels.length) {
                     servicesLevel = servicesLevels[i];
                     //2. get all divisions under this service level
                     divisions = getDivisionsByServiceLevel(servicesLevel.servicelevelID);
-                    $("#reportPlace").append("<p>"+servicesLevel.description+"</p>");
+                    $("#reportPlace").append("<p>" + servicesLevel.description + "</p>");
                     var j = 0;
-                    while (j < divisions.length){
+                    while (j < divisions.length) {
                         division = divisions[i];
-                        $("#reportPlace").append("<p>-- Division: "+division.description+"</p>");
+                        $("#reportPlace").append("<p>-- Division: " + division.description + "</p>");
                         j++;
                     }
                     i++;
@@ -33,33 +33,33 @@
             });
         });
 
-        function getAllServiceLevel(){
+        function getAllServiceLevel() {
             servicesLevels = [];
-                $.ajax({
-                    type: 'GET', //get
-                    async: false,
-                    url:'https://htcs5607isap.herokuapp.com/api/service_level/',
-                    success: function (data) {
-                        servicesLevels = data;
-                    },
-                    error: function () {
-                        alert("error");
-                    }
-                })
+            $.ajax({
+                type: 'GET', //get
+                async: false,
+                url: 'https://htcs5607isap.herokuapp.com/api/service_level/',
+                success: function (data) {
+                    servicesLevels = data;
+                },
+                error: function () {
+                    alert("error");
+                }
+            })
             return servicesLevels;
         }
 
-        function getDivisionsByServiceLevel(serviceLevel){
+        function getDivisionsByServiceLevel(serviceLevel) {
             divisions = [];
             $.ajax({
                 type: 'GET', //get
                 async: false,
-                url:'https://htcs5607isap.herokuapp.com/api/divisions/',
+                url: 'https://htcs5607isap.herokuapp.com/api/divisions/',
                 success: function (data) {
                     var i = 0;
-                    while (i < data.length){
+                    while (i < data.length) {
                         division = data[i];
-                        if (division.serviceLevel == serviceLevel){
+                        if (division.serviceLevel == serviceLevel) {
                             divisions.push(division);
                         }
                         i++;

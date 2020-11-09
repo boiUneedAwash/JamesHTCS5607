@@ -17,33 +17,28 @@
                 success: function (data) {
                     console.log(data);
                     i = 0;
-                    while (i < data.length){
+                    while (i < data.length) {
                         locations = data[i];
                         $("#show_locations").append("" +
                             "<option value='"
-                            +locations.locationID+"'>" +
+                            + locations.locationID + "'>" +
                             locations.suburb +
-                            // locations.city +
-                            // locations.country +
                             "</option>");
-
                         i++;
                     }
+
                     $("#show_locations").change(function () {
                         locationID = $("#show_locations").val();
                         getSingleLocation(locationID);
                     });
 
                     $("#delete_but").click(function () {
-
-                        if ($("#show_locations").val()==""){
-
+                        if ($("#show_locations").val() == "") {
                             $("#locationSelectionError").text("please select a location");
-                        }else {
+                        } else {
                             locationID = $("#show_locations").val();
                             deleteLocation(locationID);
                         }
-
                     });
                 },
                 error: function (err) {
@@ -52,11 +47,11 @@
             });
         });
 
-        function getSingleLocation(locationID){
+        function getSingleLocation(locationID) {
             $.ajax({
                 type: 'GET',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/locations/'+locationID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/locations/' + locationID + '/',
                 success: function (data) {
                     console.log(data);
                     locations = data;
@@ -64,8 +59,8 @@
                     $("#locations_suburb_input").val(locations.suburb);
                     $("#locations_city_input").val(locations.city);
                     $("#locations_country_input").val(locations.country);
-
                 },
+
                 error: function (err) {
                     console.log(err);
                 }
@@ -76,7 +71,7 @@
             $.ajax({
                 type: 'DELETE',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/locations/'+locationID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/locations/' + locationID + '/',
                 success: function (data) {
                     console.log(data);
                 },
@@ -84,8 +79,8 @@
                 success: function (data) {
                     alert('Location deleted successfully');
                     if (confirm('Do you want to delete another Location')) {
-                        location.reload();}
-                    else{
+                        location.reload();
+                    } else {
                         console.log("");
                         window.location.href = "divisionsMenu.html";
                     }
@@ -129,7 +124,10 @@
         <input id="locations_country_input" type="text">
     </p>
 
-    <p><button id="delete_but">Delete Location</button><button><a href="divisionsMenu.html">Cancel</a></button></p>
+    <p>
+        <button id="delete_but">Delete Location</button>
+        <button><a href="divisionsMenu.html">Cancel</a></button>
+    </p>
 </form>
 </body>
 </html>

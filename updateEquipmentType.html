@@ -17,49 +17,46 @@
                 success: function (data) {
                     console.log(data);
                     i = 0;
-                    while (i < data.length){
+                    while (i < data.length) {
                         equipmentType = data[i];
                         $("#show_equipmentType").append("" +
                             "<option value='"
-                            +equipmentType.equipmentTypeID+"'>" +
-                            equipmentType.description +" "+
+                            + equipmentType.equipmentTypeID + "'>" +
+                            equipmentType.description + " " +
                             // equipmentType.leaserate +
                             "</option>");
                         i++;
                     }
+
                     $("#show_equipmentType").change(function () {
                         equipmentTypeID = $("#show_equipmentType").val();
                         getSingleEquipmentType(equipmentTypeID);
                     });
 
-                    // $("#change_equipmentType_but").click(function () {
-                    //     equipmentTypeID = $("#show_equipmentType").val();
-                    //     updateEquipmentType(equipmentTypeID);
-                    // });
                     $("#change_equipmentType_but").click(function () {
 
-                        if ($("#show_equipmentType").val()==""){
+                        if ($("#show_equipmentType").val() == "") {
 
                             $("#equipmentTypeSelectionError").text("please select a Equipment Type");
-                        }else {
+                        } else {
                             equipmentTypeID = $("#show_equipmentType").val();
                             updateEquipmentType(equipmentTypeID);
                         }
-
                     });
-
                 },
+
                 error: function (err) {
                     console.log(err);
                 }
+
             });
         });
 
-        function getSingleEquipmentType(equipmentTypeID){
+        function getSingleEquipmentType(equipmentTypeID) {
             $.ajax({
                 type: 'GET',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/'+equipmentTypeID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/' + equipmentTypeID + '/',
                 success: function (data) {
                     console.log(data);
                     equipmentType = data;
@@ -67,21 +64,23 @@
                     $("#equipmentType_description_input").val(equipmentType.description);
                     $("#equipmentType_leaserate_input").val(equipmentType.leaserate);
                 },
+
                 error: function (err) {
                     console.log(err);
                 }
+
             });
         }
 
         function updateEquipmentType(equipmentType_equipmentTypeID) {
-            equipmentType_equipmentTypeID= $("#equipmentType_equipmentTypeID_input").val();
-            equipmentType_description= $("#equipmentType_description_input").val();
-            equipmentType_leaserate= $("#equipmentType_leaserate_input").val();
+            equipmentType_equipmentTypeID = $("#equipmentType_equipmentTypeID_input").val();
+            equipmentType_description = $("#equipmentType_description_input").val();
+            equipmentType_leaserate = $("#equipmentType_leaserate_input").val();
 
             $.ajax({
                 type: 'PUT',
                 dataType: 'JSON',
-                url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/'+equipmentTypeID+'/',
+                url: 'https://htcs5607isap.herokuapp.com/api/equipmentTypes/' + equipmentTypeID + '/',
                 data: {
                     "equipmentTypeID": equipmentType_equipmentTypeID,
                     "description": equipmentType_description,
@@ -90,8 +89,8 @@
                 success: function (data) {
                     alert('Equipment Type updated successfully');
                     if (confirm('Do you want to delete another Equipment Type')) {
-                        location.reload();}
-                    else{
+                        location.reload();
+                    } else {
                         console.log("");
                         window.location.href = "facilitiesMenu.html";
                     }
@@ -125,7 +124,10 @@
         <label>Lease Rate: </label>
         <input id="equipmentType_leaserate_input" type="text">
     </p>
-    <p><button id="change_equipmentType_but">Update Equipment Type</button><button><a href="divisionsMenu.html">Cancel</a></button></p>
+    <p>
+        <button id="change_equipmentType_but">Update Equipment Type</button>
+        <button><a href="divisionsMenu.html">Cancel</a></button>
+    </p>
 </form>
 </body>
 </html>
