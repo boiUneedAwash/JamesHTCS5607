@@ -1,18 +1,23 @@
 h1 {
     text-align: center;
-    padding-right: 900px;
+    width: 100%;
 }
 
 h2 {
     text-align: center;
-    padding-right: 910px;
+   width: 100%;
 }
 
 /*label {*/
 /*    padding-right: 80px;*/
 /*}*/
-label {
+form{
+    text-align: center;
+}
 
+input{
+    border-radius: 5px;
+    border:1px solid gray;
 }
 
 .modernButton {
