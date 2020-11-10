@@ -18,18 +18,18 @@
             //click this button
             $("#generate").click(function () {
                 $("#reportPlace").empty();
-                //1. get all service level
+                //1. get all building
                 buildings = getAllBuilding();
                 var i = 0;
                 while (i < buildings.length) {
                     buildings = buildings[i];
                     //2. get all locations under this building
                     locations = getLocationssByBuilding(buildings.buildingID);
-                    $("#reportPlace").append("<p>" + servicesLevel.description + "</p>");
+                    $("#reportPlace").append("<p>" + buildings.buildingName + "</p>");
                     var j = 0;
-                    while (j < divisions.length) {
-                        division = divisions[i];
-                        $("#reportPlace").append("<p>-- Division: " + division.description + "</p>");
+                    while (j < locations.length) {
+                        location = locations[i];
+                        $("#reportPlace").append("<p>-- Location: " + location.suburb + "</p>");
                         j++;
                     }
                     i++;
@@ -38,34 +38,34 @@
             });
         });
 
-        function getAllServiceLevel() {
-            servicesLevels = [];
+        function getAllBuilding() {
+            buildings = [];
             $.ajax({
                 type: 'GET', //get
                 async: false,
-                url: 'https://htcs5607isap.herokuapp.com/api/service_level/',
+                url: 'https://htcs5607isap.herokuapp.com/api/buildings/',
                 success: function (data) {
-                    servicesLevels = data;
+                    buildings = data;
                 },
                 error: function () {
                     alert("error");
                 }
             })
-            return servicesLevels;
+            return buildings;
         }
 
-        function getDivisionsByServiceLevel(serviceLevel) {
-            divisions = [];
+        function getLocationsByBuilding(building) {
+            locations = [];
             $.ajax({
                 type: 'GET', //get
                 async: false,
-                url: 'https://htcs5607isap.herokuapp.com/api/divisions/',
+                url: 'https://htcs5607isap.herokuapp.com/api/locations/',
                 success: function (data) {
                     var i = 0;
                     while (i < data.length) {
-                        division = data[i];
-                        if (division.serviceLevel == serviceLevel) {
-                            divisions.push(division);
+                        location = data[i];
+                        if (location.building == location) {
+                            locations.push(location);
                         }
                         i++;
                     }
@@ -74,13 +74,13 @@
                     alert("error");
                 }
             })
-            return divisions;
+            return locations;
         }
     </script>
     <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
-<h1>Produce Service Levels Report</h1>
+<h1>Produce Buildings Report</h1>
 <div id="reportPlace">
 
 </div>
