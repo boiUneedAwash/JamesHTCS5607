@@ -20,6 +20,16 @@ input{
     border:1px solid gray;
 }
 
+select{
+    border-radius: 5px;
+    border:1px solid gray;
+}
+
+option{
+    border-radius: 5px;
+    border:1px solid gray;
+}
+
 .modernButton {
     display: inline-block;
     margin: 10px;
@@ -52,4 +62,12 @@ a:hover
     color:white;
     text-decoration:none;
     cursor:pointer;
+}
+
+#reportPlace{
+    text-align: center;
+}
+
+#reportButtons{
+    text-align: center;
 }

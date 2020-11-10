@@ -8,6 +8,11 @@
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6,p,p1,p2 {font-family: "Roboto", sans-serif}
+    </style>
     <script>
         $(document).ready(function () {
             $("#add_servicelevel_but").click(function () {
@@ -53,8 +58,8 @@
     <p id="description_input_err"></p>
     <p><label> Service Rate: </label><input id="serviceRate_input" type="text" size="25"></p>
     <p id="serviceRate_input_err"></p>
-    <button type="button" id="add_servicelevel_but">Add Service Level</button>
-    <button><a href="divisionsMenu.html">Cancel</a></button>
+    <button class=modernButton type="button" id="add_servicelevel_but">Add Service Level</button>
+    <button class=modernButton><a href="divisionsMenu.html">Cancel</a></button>
 </form>
 </body>
 </html>

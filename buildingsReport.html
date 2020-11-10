@@ -19,12 +19,12 @@
             $("#generate").click(function () {
                 $("#reportPlace").empty();
                 //1. get all service level
-                servicesLevels = getAllServiceLevel();
+                buildings = getAllBuilding();
                 var i = 0;
-                while (i < servicesLevels.length) {
-                    servicesLevel = servicesLevels[i];
-                    //2. get all divisions under this service level
-                    divisions = getDivisionsByServiceLevel(servicesLevel.servicelevelID);
+                while (i < buildings.length) {
+                    buildings = buildings[i];
+                    //2. get all locations under this building
+                    locations = getLocationssByBuilding(buildings.buildingID);
                     $("#reportPlace").append("<p>" + servicesLevel.description + "</p>");
                     var j = 0;
                     while (j < divisions.length) {
