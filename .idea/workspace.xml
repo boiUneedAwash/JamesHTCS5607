@@ -11,10 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d5a0308-3965-4e84-b52e-3e2a02d68004" name="Default Changelist" comment="Add finished and working">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_11_2020_4_35_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_11_2020_4_35_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facilitiesMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/facilitiesMenu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/divisionsMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/divisionsMenu.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +69,8 @@
       <workItem from="1604529037835" duration="1237000" />
       <workItem from="1604531175174" duration="22192000" />
       <workItem from="1605150832466" duration="1421000" />
-      <workItem from="1605665144840" duration="1098000" />
+      <workItem from="1605665144840" duration="1392000" />
+      <workItem from="1605670769070" duration="650000" />
     </task>
     <task id="LOCAL-00001" summary="Add finished and working">
       <created>1604365860741</created>
