@@ -10,7 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d5a0308-3965-4e84-b52e-3e2a02d68004" name="Default Changelist" comment="Add finished and working" />
+    <list default="true" id="2d5a0308-3965-4e84-b52e-3e2a02d68004" name="Default Changelist" comment="Add finished and working">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +69,7 @@
       <workItem from="1604531175174" duration="22192000" />
       <workItem from="1605150832466" duration="1421000" />
       <workItem from="1605665144840" duration="1392000" />
-      <workItem from="1605670769070" duration="9325000" />
+      <workItem from="1605670769070" duration="10726000" />
     </task>
     <task id="LOCAL-00001" summary="Add finished and working">
       <created>1604365860741</created>
